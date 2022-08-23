@@ -1,3 +1,3 @@
 # dan-lee-org
-# danlee-org
-# danlee-org
+
+A simple personal website written in Jekyll / Ruby
