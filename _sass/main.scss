@@ -16,7 +16,7 @@
 }
 
 a {
-  color: white
+  color: cornflowerblue;
 }
 
 .navbar {
@@ -24,11 +24,18 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 30px;
 }
 
 
 .nav-link {
   text-decoration: none;
+  color:white;
+  text-align: center;
+  width: 80px;
+  padding: 10px;
+  background-color: cornflowerblue;
+  border-radius: 20px;
 }
 
 

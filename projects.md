@@ -1,7 +1,7 @@
 ---
 layout: default
-title: About
+title: Projects
 ---
-# About page
+# Project page
 
 This page tells you a little bit about me.
