@@ -25,7 +25,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 30px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 
@@ -33,8 +34,9 @@ a {
   text-decoration: none;
   color:white;
   text-align: center;
-  width: 80px;
+  width: 70px;
   padding: 10px;
+  margin: 10px;
   background-color: cornflowerblue;
   border-radius: 20px;
 }

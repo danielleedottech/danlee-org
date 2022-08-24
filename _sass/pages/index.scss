@@ -1,8 +1,9 @@
-.about-me {
+.info-table-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 
     .info-table {
         margin: auto;
@@ -39,4 +40,12 @@
             color: #c5d8f1;
         }
     }
+}
+
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
 }

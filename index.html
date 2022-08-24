@@ -4,18 +4,16 @@ title: Home
 ---
 <h1>About Me</h1>
 
-<article class="about-me">
-
-
-<table class="info-table">
-    <h2>Quick Info</h2>
-    <thead>
+<section class="info-table-section">
+    <table class="info-table">
+        <h2>Quick Info</h2>
+        <thead>
         <tr class="head-tr">
             <th>Field</th>
             <th>Value</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         <tr>
             <td>
                 Name
@@ -24,10 +22,10 @@ title: Home
         </tr>
         <tr>
             <td>
-               Age
+                Age
             </td>
             <td>
-                {{ "today" | date: "%Y" | minus: 1996  }}
+                {{ "today" | date: "%Y" | minus: 1996 }}
             </td>
         </tr>
         <tr>
@@ -37,10 +35,14 @@ title: Home
         <tr>
             <td>Years of Experience</td>
             <td>
-                {{ "today" | date: "%Y" | minus: 2018  }}
+                {{ "today" | date: "%Y" | minus: 2018 }}
             </td>
         </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</section>
 
-</article>
+<hr style="color: white;"></hr>
+<section class="skills-section">
+    <h2>Skills</h2>
+</section>
