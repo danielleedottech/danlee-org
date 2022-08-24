@@ -4,10 +4,13 @@ title: Home
 ---
 <h1>About Me</h1>
 
+<article class="about-me">
 
-<table>
+
+<table class="info-table">
+    <h2>Quick Info</h2>
     <thead>
-        <tr>
+        <tr class="head-tr">
             <th>Field</th>
             <th>Value</th>
         </tr>
@@ -19,6 +22,25 @@ title: Home
             </td>
             <td>Daniel Lee</td>
         </tr>
+        <tr>
+            <td>
+               Age
+            </td>
+            <td>
+                {{ "today" | date: "%Y" | minus: 1996  }}
+            </td>
+        </tr>
+        <tr>
+            <td>Profession</td>
+            <td>Software Engineer</td>
+        </tr>
+        <tr>
+            <td>Years of Experience</td>
+            <td>
+                {{ "today" | date: "%Y" | minus: 2018  }}
+            </td>
+        </tr>
     </tbody>
 </table>
 
+</article>
