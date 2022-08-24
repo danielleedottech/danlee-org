@@ -31,7 +31,7 @@ AWS Amplify has native support for many different types of web applications. It 
 
 ### Steps
 
-#### Custom Docker Image Creation Step 1
+### Custom Docker Image Creation Step 1
 
 Make sure you have a [docker hub account](https://hub.docker.com/signup).
 
@@ -39,7 +39,7 @@ Make sure you have Docker Desktop installed on your operating system.
 
 Also make sure you log in to Docker Hub on your operating system through Docker Desktop. 
 
-#### Custom Docker Image Creation Step 2
+### Custom Docker Image Creation Step 2
 
 To create a custom Docker image, it is standard practice and useful to build off an existing official image. In this case, we should build off an official image aligned with the Ruby version you used to build your Jekyll site.
 
@@ -48,8 +48,20 @@ Note: Those of you experienced with Docker might think, why not just use the off
 This is the docker image I used for this site:
 
 ```Dockerfile
+FROM ruby:3.1.2
+WORKDIR /
+# replace below URL with your github URL
+RUN git clone https://github.com/daniel-lee-tech/danlee-org.git
+# replace below folder name to the name of your repo
+WORKDIR /danlee-org
+RUN bundle install
+WORKDIR /
 
+ENTRYPOINT [ "bash", "-c" ]
 ```
+
+Make sure you save the above file in a Dockerfile and replace the git url and folder name that correlates with your project.
+
 
 
 

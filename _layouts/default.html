@@ -4,11 +4,18 @@
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
     {% feed_meta %}
     {% seo %}
 </head>
-<body>
-{% include navigation.html %}
-{{ content }}
+<!-- line numbers class add line numbers to all code snippets using prism.js -->
+<body class="body line-numbers">
+<header>
+    {% include navigation.html %}
+</header>
+<main>
+    {{ content }}
+    <script src="/assets/javascript/prism.js"></script>
+</main>
 </body>
 </html>
