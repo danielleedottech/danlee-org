@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: ["aws", "jekyll", "ruby", "docker", "aws amplify", "devops"]
-draft: true
+draft: false
 ---
 
 ## Introduction
@@ -65,37 +65,99 @@ ENTRYPOINT [ "bash", "-c" ]
 
 Make sure you save the above file in a Dockerfile and replace the ruby version, git url and folder name that correlates with your project.
 
+## 4. Upload the Docker Image to Docker Hub
+
+Now that you have your Dockerfile, what you can now do is build and tag the image. The command to do that is as follows:
+
+```bash
+docker build <PATH TO DOCKERFILE> -t <IMAGE NAME>:latest
+```
+
+a concrete example that I used on my project:
+
+```bash
+docker build -f . -t danleeorg:latest
+```
+
+After that builds successfully, you can push that image to your docker hub repository. The command to do that is as follows:
+
+```bash
+docker image push <DOCKER HUB ACCOUNT NAME>/<IMAGE NAME>
+```
+
+A concrete example that I used:
+
+```bash
+docker image push danielleetech/danlee-org
+```
+
+You can check if the image pushed successfully by logging into your Docker Hub account.
 
 
+## 5. Deploy to AWS Amplify with a custom build configuration
 
+Now that we have our Docker Image and Github Repo all ready to go, we can now deploy. Let's login into the AWS Amplify console. [https://us-east-1.console.aws.amazon.com/amplify/home](https://us-east-1.console.aws.amazon.com/amplify/home).
 
+The home page should look like this:
 
+![AWS Amplify Home page](/assets/images/aws_amplify/aws_amplify_homepage.png)
 
+Make sure you are in the right region.
 
+Once you are, scroll down and click the `Get Started` button for web hosting. Picture of the button you need to click is below:
 
+![AWS Amplify Web hosting button](/assets/images/aws_amplify/aws_amplify_web_button.png)
 
+Connect your version control system, Github in this case.
 
+![AWS Amplify Web Github button](/assets/images/aws_amplify/aws_amplify_github_button.png)
 
+Once you've went through the process of connecting your github account, select the Jekyll repo and git branch that you want to deploy.
+
+It's going to ask you to configure your build settings.
+
+Click the edit button to modify the yml file.
+
+![AWS Amplify Edit Yml Button](/assets/images/aws_amplify/aws_amplify_edit_build_button.png)
+
+You should modify lines 5, 6, 9 and 12 of the original yml file. Full example is below.
+
+Note: that we erased the `bundle install` command since we are already installing our needed dependencies in your custom docker image.
 ```yml
 version: 1
 frontend:
   phases:
     preBuild:
-      commands:
-        - bundle install
+      commands: []
     # IMPORTANT - Please verify your build commands
     build:
-      commands: []
+      commands: ["bundle exec jekyll b"]
   artifacts:
     # IMPORTANT - Please verify your build output directory
-    baseDirectory: /
+    baseDirectory: /_site
     files:
       - '**/*'
   cache:
     paths: []
-
 ```
 
+After that expand advanced settings to specify a custom build image.
+
+![AWS Amplify Advanced Settings Dropdown](/assets/images/aws_amplify/aws_amplify_advanced_settings_button.png)
+
+In the above picture, you will see that I specified a custom docker image.
+
+The syntax for specifying your custom docker image is as follows:
+
+```
+<docker hub username>/<docker image name>
+```
+
+Click `Next` and then click `Save and Deploy`.
+
+Wait a few minutes and now your Jekyll site should be deployed!
+
+Congrats, thanks for reading.
 
 
 
