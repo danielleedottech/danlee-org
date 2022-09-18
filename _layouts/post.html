@@ -13,4 +13,8 @@ layout: default
 
     {{ content }}
 
+    {% if page.draft %}
+    <h1 class="draft-notice">This is a draft and it is incomplete</h1>
+    {% endif %}
+
 </article>
