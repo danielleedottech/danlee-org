@@ -75,6 +75,22 @@ Most chains have, for the most part, an easy way to creating smart contracts in 
 
 But applications are just more than 1 logical unit of work, they are combination of a plethora of logical units of work.
 
+How feasible is it to create applications that span complicated domains but are separated into a series of smart contracts?
+
+I think with the new trends such as FaaS (Function as a Service), I think it's dawning in the engineering zeitgeist that maybe it is feasible to abstract your applications into functions that are separated both through logical separation and infrastructure. Many are still skeptical.
+
+Which brings me back to Decentralized apps. Is it really feasible to create applications that are only a combination of smart contracts? I'm not too convinced.
+
+Not to mention that a lot of smart contract platforms have hard limits in the scope of their smart contracts. For instance Algorand smart contracts have a limit of size, execution time, and state. Cardano smart contracts enforce you to operate without state in a novel UTXO smart contract model.
+
+I am skeptical if apps worth building can neatly fall into this model. I also am skeptical about the economic feasibility of this smart contract model. For example, do these blockchains have the capacity to support the throughput of web-scale applications?
+
+Ethereum is already facing high fees and decentralized applications are not even that popular yet. I also question the economics behind it. In a platform with limited throughput, is there a reason to ever launch your decentralized applications unless you are expecting a huge load of users? I do not know how economic feasible it is for smaller app developers to push their code on to throughput limited platform. I also don't know how feasible it is to push the costs of compute execution to the end user.
+
+Right now applications make money not because customers are paying for the compute execution directly but because of the byproduct of that compute execution. For example, if we look at streaming services like Netflix, customers are not paying a monthly subscription not because they are paying for the AWS servers to compute some HTTP fetch calls, but because of the content they are watching.
+
+It would be a very weird business model if customers payed for the run time of the aws servers. Another downside of this model is that it becomes hard to amortize the cost of compute execution. For example, there are cost savings with server execution time because Netflix can subsidize these costs by scaling to millions of users. However, it's not as obvious to me that these execution costs can be easily amortized if customers were required to pay for the cost of execution up front.
+
 
 
 
