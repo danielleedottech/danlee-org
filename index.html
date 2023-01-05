@@ -47,28 +47,17 @@ title: Home
 <h1 class="page-title">Job History</h1>
 
 <section>
+    {% for job in site.data.job_history %}
     <article class="job-experience-article">
-        <h2 class="section-title">Senior Ruby on Rails Engineer</h2>
-        <p class="section-sub-title">at Dish Network</p>
-    </article>
+        <div>
+            <h2 class="section-title">{{ job.title }}</h2>
+            <p class="section-sub-title">at {{ job.place }}</p>
+        </div>
 
-    <article class="job-experience-article">
-        <h2 class="section-title">Front End Consultant</h2>
-        <p class="section-sub-title">at Pawn Guru</p>
-    </article>
+        <div class="job-link-wrapper">
+            <a class="job-link" href="{{ job.link }}">Read what I did</a>
 
-    <article class="job-experience-article">
-        <h2 class="section-title">Full Stack Engineer</h2>
-        <p class="section-sub-title">Ethical Identity</p>
+        </div>
     </article>
-
-    <article class="job-experience-article">
-        <h2 class="section-title">Junior Full Stack Engineer</h2>
-        <p class="section-sub-title">at Tailored Industry</p>
-    </article>
-
-    <article class="job-experience-article">
-        <h2 class="section-title">Infantryman</h2>
-        <p class="section-sub-title">at US ARMY</p>
-    </article>
+    {% endfor %}
 </section>
