@@ -1,1 +1,57 @@
-helllo
+---
+layout: default
+title: Jobs/Dish Network
+---
+<main class="pages-jobs-dish-network__main">
+    <h1 class="page-title">Senior Ruby on Rails Engineer at Dish Network</h1>
+
+    <article>
+        <h2 class="section-title">Notable Achievements</h2>
+        <h3 class="section-sub-title">Migrated Ruby on Rails monolith to upgraded upstream dependencies</h3>
+        <details>
+            <summary class="achievement-summary">Deep Dive</summary>
+            <div class="achievement-explanation">
+                Video streaming platforms usually have backends that talk to other backends.
+                Most of the functionality fueled by video platforms are from discrete external services.
+                Usually most of these video platforms have a single backend that practices the <a href="https://microservices.io/patterns/apigateway.html">API Gateway Design Pattern. </a>
+                <br />
+                <br />
+                At Dish Network, I was tasked with migrated two of our external dependencies to upgraded versions.
+                Our platform was roughly 14 years old and the two external dependencies in question were woefully outdated.
+                Any new migration would causing breaking changes.
+                <br />
+                <br />
+                During my tenure, I was able to migrate to new services to fuel upgraded video playback functionality and cleaner metadata.
+            </div>
+        </details>
+        <h3 class="section-sub-title">Stabilized Data ingestion for speed and data reliability</h3>
+        <details>
+            <summary class="achievement-summary">Deep Dive</summary>
+            <div class="achievement-explanation">
+                Video streaming platforms most likely are not the "owners" of the content that they play.
+                There are certain licensing agreements and deals that video platforms make with the "asset providers".
+                <br />
+                <br />
+                Because of this, consumer facing backends have to periodically ingest this data and ingest this data in a scalable way.
+                The video platform I was working on was really focused on live tv content.
+                One of the issues we were facing with our current ingestion is the data replication issues with heavy tv scheduling changes.
+                <br />
+                <br />
+                During me tenure, I was able to modify our timed jobs to mitigate data replication issues and trigger seamless updates in scheduling.
+            </div>
+        </details>
+        <h3 class="section-sub-title">Devops, Containerization, and Gitlab Pipelines</h3>
+        <details>
+            <summary class="achievement-summary">Deep Dive</summary>
+            <div class="achievement-explanation">
+                When I first arrived at Dish Network, the product I was working on was not dockerized.
+                I volunteered to help dockerize the Ruby on Rails application to create a better developer experience.
+                <br />
+                <br />
+                Also during this time, my team was migrating from Jenkins to Gitlab. Our devops engineer had trouble writing pipeline jobs correctly because of our complex tech stack.
+                I volunteered to rewrite the pipeline job using Docker in Docker to create a more stable pipeline.
+            </div>
+        </details>
+    </article>
+</main>
+
