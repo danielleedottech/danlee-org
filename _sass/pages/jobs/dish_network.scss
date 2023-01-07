@@ -34,11 +34,19 @@
   }
 
   .achievement-explanation {
+    color: #b0cae3;
+
     font-size: 1rem;
     margin: 15px;
     padding: 10px;
-    border: 1px solid #859caa;
+    border: 1px solid #c9d8e3;
     border-radius: 10px;
+  }
+
+  li {
+    color: #6196cc;
+    list-style: square;
+
   }
 
 }
