@@ -1,0 +1,64 @@
+---
+layout: default
+title: Jobs/Pawn Guru
+---
+<main class="pages-jobs-dish-network__main">
+    <h1 class="page-title">Front End Consultant at Pawn Guru</h1>
+    <article>
+        <h2 class="section-title">Tech Used</h2>
+        <ul>
+            <li>React.js / Javascript</li>
+            <li>Python / Django</li>
+            <li>MySQL</li>
+            <li>Redis</li>
+            <li>Docker</li>
+            <li>AWS</li>
+            <li>Git / Github</li>
+            <li>Jenkins</li>
+            <li>Jira</li>
+        </ul>
+
+        <h2 class="section-title">Notable Achievements</h2>
+        <h3 class="section-sub-title">Integrated Google OAuth Sign In</h3>
+        <details>
+            <summary class="achievement-summary">Deep Dive</summary>
+            <div class="achievement-explanation">
+                Pawn Guru was all about conversion rates. Pawn Guru's business model was about generating leads for local pawn shops. When anyone would try to pawn something off on google, it would try to recommend 1st time users to sign up for the platform. One of the bottle-necks of this flow was the signup. We decided to implement google sign in our flow to expedite the lead / conversion process.
+                <br />
+                There were 3 steps for this process, integrating google oauth in the front end, verifying front end google oauth sessions in the Django backend, and then aligning existing user accounts that used Gmail with the new Google OAuth flow.
+            </div>
+        </details>
+        <h3 class="section-sub-title">Re-factored and optimized existing React Component Library</h3>
+        <details>
+            <summary class="achievement-summary">Deep Dive</summary>
+            <div class="achievement-explanation">
+               Pawn Guru's front end was using a custom themed Material UI Library. It also incorporated a lot of React utility libraries, notably Formik. I'm assuming when the previous engineers first built their front end stack, a lot of their 3rd party libraries they were using did not play well with their components. The previous team ended up re-implementing a lot of the built in Material UI components as wrapped components that acted as a compatibility layer for all their needed 3rd party libraries.
+
+                <br />
+                However there were a lot of problems with this. 3 problems notably being:
+
+                <ol>
+                    <li>
+                        Ugly and confusing code
+                    </li>
+                    <li>
+                        Very unreliable end to end testing, a lot of the components were hidden from test utility methods in headless browser environments, causing headaches when writing new end to end tests using either Cypress or Selenium.
+                    </li>
+                    <li>
+                        Un-necessary re-rendering of components because of poor API design.
+                    </li>
+                </ol>
+
+                With the updates with React hooks and the ability to create your own custom hooks, I was able to delete ALL of the custom wrapped components and use the default Material UI components, which decreased time to first paint, re-rendering, and bundle size.
+            </div>
+        </details>
+        <h3 class="section-sub-title">A/B Testing and Increasing Conversion</h3>
+        <details>
+            <summary class="achievement-summary">Deep Dive</summary>
+            <div class="achievement-explanation">
+                Pawn Guru made most of it's money in generating leads for its clients, Pawn Shop owners. The management and ui/ux team came up with different designs for Pawn Guru's "Lead Form" that users first came across during their initial interactions with the Pawn Guru product. I was able to lead the effort of increasing conversions by creating different "Lead Form" components and testing different variations. We were able to increase our conversion rates by 30%.
+            </div>
+        </details>
+    </article>
+</main>
+
