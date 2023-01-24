@@ -55,8 +55,11 @@ title: Home
         </div>
 
         <div class="job-link-wrapper">
-            <a class="job-link" href="{{ job.link }}">Read what I did</a>
-
+            {% if job.title == "Infantryman" %}
+                <a class="job-link invisible" href="{{ job.link }}">Read what I did</a>
+            {% else %}
+                <a class="job-link" href="{{ job.link }}">Read what I did</a>
+            {% endif %}
         </div>
     </article>
     {% endfor %}
