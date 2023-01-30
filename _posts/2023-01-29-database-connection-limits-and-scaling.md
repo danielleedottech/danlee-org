@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: ["databases", "mysql", "sql", "elasticsearch", "aws", "rds"]
-draft: true
+draft: false
 ---
 
 ## Introduction
@@ -92,16 +92,17 @@ We went with 2 solutions:
 * Writes are NOT transactional allowing for faster (but less secure) writes.
 * More fine tuned search functionality.
 * Easier horizontal scaling compared to AWS RDS.
+* Do not have to worry about database connection limits.
 
 The product my team was working on was read heavy with varying traffic load throughout the day and had millions of records to search from at all times. We believed that if we converted all lot of the ready heavy endpoints to use exclusively or mostly Elasticsearch, we could alleviate our database connection issues, which it did.
 
 ### Switching to Elasticsearch Cons
 
-Switching some of our domain logic to Elasticsearc was not easy. We had to do a mental reframing in our application.
+Switching some of our domain logic to Elasticsearch was not easy. We had to do a mental reframing in our application.
 
-It added a lot more complexity to our application. Converting our active model records to elastic search wasn't a 1 to 1 conversion.  Our ingestion from upstream data sources also became complex and messy. [This blog from ClearScale does a great job explaning their process to switching to ElasticSearch and it represents our flow very similarly](https://blog.clearscale.com/amazon-elasticsearch-mysql-performance/)
+It added a lot more complexity to our application. Converting our active model records to elastic search wasn't a 1 to 1 conversion. We actually had to create new models to better encapsulate our application logic and Elasticsearch quirks. Specifically we had to switch from the [Active Record Design pattern](https://en.wikipedia.org/wiki/Active_record_pattern) into a more [Query Object design pattern](https://martinfowler.com/eaaCatalog/queryObject.html).
 
-We actually had to create new models to better encapsulate our application logic and Elasticsearch quirks. Specifically we had to switch from the [Active Record Design pattern](https://en.wikipedia.org/wiki/Active_record_pattern) into a more [Query Object design pattern](https://martinfowler.com/eaaCatalog/queryObject.html).
+Our ingestion from upstream data sources also became complex and messy. [This blog from ClearScale does a great job explaning their process to switching to ElasticSearch and it represents our flow very similarly](https://blog.clearscale.com/amazon-elasticsearch-mysql-performance/) Essentially we had to add on an Elasticsearch ingestion layer that read from a completed MySQL upstream ingestion.
 
 ### Caching Benefits
 
@@ -111,11 +112,18 @@ Our strategy to cache data was to create key value pairs unique to the user that
 
 The benefit of this approach is that we can offset sql reads by last read time specific for the user and decrease SQL reads altogether.
 
+#### Caching Implementation Nuance
+
+We used memcache on data that could be destroyed. We used Redis on data that was vital to our application and would have to be persisted for the lifetime of the application.
+
 ### Caching Cons
 
 We realized that AWS EC2 instances also have bandwidth limitations that scales to the instance size. Heavily caching our data caused Network Bandwidth issues, but that is a discussion for another time.
 
+Also a lot of our data cached was schemaless. Of course we could have created our own schema objects that would be used to serialize and deserialize data, but nothing actually stops the application layer for storing schema breaking data.
+
 ### Final Learnings
 
-Elasticsearch is a great database, it is highly performant and scaling horizontally is for the most part an easy process. It doesn't have to transactional guarantees as MySQL but we found that for our read heavy application we did not need the same safety guarantees.
+Elasticsearch is a great database, it is highly performant and scaling horizontally is for the most part an easy process. It doesn't have to transactional guarantees as MySQL but we found that for our read heavy application we did not need the same safety guarantees. 
 
+Caching is an awesome and easy technique to alleviate database loads and decrease response times but beware of network bandwidth issues especially during peak load if your have a highly loaded cache.
