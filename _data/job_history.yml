@@ -1,16 +1,37 @@
-- title: Senior Ruby on Rails Engineer
+- title: Staff Ruby on Rails Engineer
   place: Dish Network
   link: /pages/jobs/dish_network.html
+  current: true
+  start_month: april
+  start_year: 2022
+  end_month: current
+  end_year: current
 - title: Front End Consultant
   place: Pawn Guru
   link: /pages/jobs/pawnguru.html
+  start_month: august
+  start_year: 2020
+  end_month: october
+  end_year: 2021
 - title: Full Stack Engineer
   place: Ethical Identity
   link: /pages/jobs/ethical_identity.html
+  start_month: august
+  start_year: 2020
+  end_month: october
+  end_year: 2021
 - title: Junior Full Stack Engineer
   place: Tailored Industry
   link: /pages/jobs/tailored_industry.html
+  start_month: may
+  start_year: 2019
+  end_month: january
+  end_year: 2020
 - title: Infantryman
   place: US ARMY
   link: /pages/coming_soon.html
+  start_month: july
+  start_year: 2014
+  end_month: november
+  end_year: 2017
 

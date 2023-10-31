@@ -51,7 +51,12 @@ title: Home
     <article class="job-experience-article">
         <div>
             <h2 class="section-title">{{ job.title }}</h2>
-            <p class="section-sub-title">at {{ job.place }}</p>
+            <p class="section-sub-title inline">at {{ job.place }}</p>
+            {% if job.current %}
+                <p class="section-sub-title-2 inline italic">({{ job.start_month }} {{ job.start_year }} - Current)</p>
+            {% else %}
+                <p class="section-sub-title-2 inline italic">({{ job.start_month }} {{ job.start_year }} - {{ job.end_month }} {{ job.end_year }})</p>
+            {% endif %}
         </div>
 
         <div class="job-link-wrapper">
