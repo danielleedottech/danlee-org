@@ -1,11 +1,3 @@
-<!--
-
-*
-
-* 
-
--->
-
 ## Introduction
 
 I started live streaming on my YouTube channel, trying to create a Remix/Rails app as I learned Remix for the first during the stream. So, I am not an experienced or knowledgeable Remix JS developer. However, after spending four to five hours with it during my live stream and a few hours just researching and learning the technology, I have some thoughts.
