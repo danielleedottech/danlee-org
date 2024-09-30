@@ -3,46 +3,6 @@
 @import 'pages/index.scss';
 @import 'pages/jobs/dish_network.scss';
 
-* {
-  font-family: Optima, sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-}
-
-.body {
-  max-width: 900px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: auto;
-  background: #2c2c32;
-  color: white;
-}
-
-a {
-  color: cornflowerblue;
-}
-
-.navbar {
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-top: 20px;
-}
-
-
-.nav-link {
-  text-decoration: none;
-  color:white;
-  text-align: center;
-  width: 70px;
-  padding: 10px;
-  margin: 10px;
-  background-color: cornflowerblue;
-  border-radius: 20px;
-}
 
 .invisible {
   color: transparent;
