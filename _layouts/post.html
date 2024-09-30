@@ -3,7 +3,7 @@ layout: default
 ---
 <article class="post">
     {% if page.draft %}
-        <h1 class="draft-notice">This is a draft and it is incomplete</h1>
+        <h1 class="text-danger">This is a draft and it is incomplete</h1>
     {% endif %}
     <h1 class="post-title">{{ page.title }}</h1>
 
@@ -14,7 +14,7 @@ layout: default
     {{ content }}
 
     {% if page.draft %}
-    <h1 class="draft-notice">This is a draft and it is incomplete</h1>
+    <h1 class="text-danger">This is a draft and it is incomplete</h1>
     {% endif %}
 
 </article>
